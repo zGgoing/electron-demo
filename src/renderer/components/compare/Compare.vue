@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div class="compare">
     <Spin size="large" fix v-if="spinShow"></Spin>
     <div class="content">
       <ReadXlsx
@@ -9,6 +9,7 @@
         @toggleSpin="toggleSpin"></ReadXlsx>
       <div class="match">
         <div class="legend">
+          <div class="back" @click="backIndex">回到首页</div>
           <div class="legend-item">
             未匹配：<div class="color-box un-matched"></div>
           </div>
@@ -19,7 +20,7 @@
             已选中：<div class="color-box current"></div>
           </div>
           <div class="legend-item">
-            已匹配的组：<div class="color-box group"></div>
+            已匹配组：<div class="color-box group"></div>
           </div>
         </div>
         <Button
@@ -90,6 +91,9 @@ export default {
     }
   },
   methods: {
+    backIndex () {
+      this.$router.push('/')
+    },
     lcs (str1, str2) {
       str1 = str1 ? String(str1).trim() : ''
       str2 = str2 ? String(str2).trim() : ''
@@ -266,7 +270,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.index {
+.compare {
   width: 100%;
   min-height: 100%;
   position: relative;
@@ -299,6 +303,15 @@ export default {
         top: 20px;
         left: 0;
         padding-left: 2px;
+        .back {
+          cursor: pointer;
+          margin-bottom: 10px;
+          position: relative;
+          top: -5px;
+          &:hover {
+            color: skyblue;
+          }
+        }
         .legend-item {
           display: flex;
           align-items: center;

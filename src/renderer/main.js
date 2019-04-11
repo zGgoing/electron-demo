@@ -9,6 +9,12 @@ import 'iview/dist/styles/iview.css'
 
 Vue.use(iView)
 
+// 接收主进程消息，在关闭前清store
+let ipcRenderer = require('electron').ipcRenderer
+ipcRenderer.on('clear-store', () => {
+  store.dispatch('setLoginState', false)
+})
+
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false

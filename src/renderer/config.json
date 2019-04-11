@@ -1,0 +1,10 @@
+{
+  "userName": "yc",
+  "password": "yc666",
+  "modules": [
+    {
+      "name": "compare",
+      "desc": "对账"
+    }
+  ]
+}

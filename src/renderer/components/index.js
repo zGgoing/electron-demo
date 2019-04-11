@@ -1,5 +1,7 @@
-const Index = () => import('../components/Index.vue')
+const Compare = () => import('./compare/Compare.vue')
+const Login = () => import('./login/Login.vue')
 
 export {
-  Index
+  Login,
+  Compare
 }
